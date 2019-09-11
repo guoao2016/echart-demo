@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>line</title>
+    <script src="./echarts.min.js"></script>
+</head>
+
+<body>
+    <div id="main1" style="width:600px;height: 400px;"></div>
+    <div id="main2" style="width:600px;height: 400px;"></div>
+    <script>
+        var myChart1 = echarts.init(document.getElementById('main1'));
+        var option1 = {
+            xAxis: {
+                type: 'category',
+                data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+            },
+            yAxis: {
+                type: 'value'
+            },
+            series: [{
+                data: [
+                    {
+                        name: ' ', value: 100
+                    },
+                    {
+                        name: '买入', value: 120
+                    },
+                    {
+                        name: '加仓', value: 140
+                    },
+                    {
+                        name: '卖出', value: 20
+                    },
+                ],
+                type: 'line',
+                smooth: true,
+                label: {
+                    normal: {
+                        show: true,
+                        formatter: '{b}'
+                    }
+                }
+            }]
+        };
+
+         // 使用刚指定的配置项和数据显示图表。
+         myChart1.setOption(option1);
+
+
+
+
+         var myChart2 = echarts.init(document.getElementById('main2'));
+        var option2 = {
+            xAxis: {
+                type: 'category',
+                data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+            },
+            yAxis: {
+                type: 'value'
+            },
+            series: [{
+                data: [
+                    {
+                        name: ' ', value: 100
+                    },
+                    {
+                        name: '抄底', value: 80
+                    },
+                    {
+                        name: '抄底', value: 60
+                    },
+                    {
+                        name: '抄底', value: 20
+                    },
+                ],
+                type: 'line',
+                smooth: true,
+                label: {
+                    normal: {
+                        show: true,
+                        formatter: '{b}'
+                    }
+                }
+            }]
+        };
+
+         // 使用刚指定的配置项和数据显示图表。
+         myChart2.setOption(option2);
+
+
+
+    </script>
+</body>
+
+</html>
