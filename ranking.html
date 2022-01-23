@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>安居房排名</title>
+    <script src="./echarts.min.js"></script>
+</head>
+
+<body>
+    <div id="main1" style="width:600px;height: 400px;"></div>
+    <div id="main2" style="width:600px;height: 400px;"></div>
+    <script>
+        var myChart1 = echarts.init(document.getElementById('main1'));
+        var option1 = {
+            xAxis: {
+                type: 'category',
+                data: ['202111', '202201', '202206', '202207', '202208', '202209', '202210', '202211']
+            },
+            yAxis: {
+                type: 'value'
+            },
+            series: [{
+                data: [
+                    {
+                        name: ' ', value: 57871
+                    },
+                    {
+                        name: '', value: 55654
+                    },
+                ],
+                type: 'line',
+                smooth: true,
+                 itemStyle: {
+                    normal: {
+                        color: "#3C76F4", //改变折线点的颜色
+                        label : {show: true}, //顶部显示数值
+                        lineStyle: {
+                        color: "#3C76F4" //改变折线颜色
+                        }
+                    }
+                 },
+            }]
+        };
+
+         // 使用刚指定的配置项和数据显示图表。
+         myChart1.setOption(option1);
+
+    </script>
+</body>
+
+</html>
