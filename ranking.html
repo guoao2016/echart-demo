@@ -7,20 +7,39 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>安居房排名</title>
     <script src="./echarts.min.js"></script>
+    <style>
+        .container {
+            position: absolute;
+            width: 90%;
+            height: 500px;
+            left: 2px;
+        }
+    </style>
 </head>
 
 <body>
-    <div id="main1" style="width:600px;height: 400px;"></div>
-    <div id="main2" style="width:600px;height: 400px;"></div>
+    <div id="main1" class="container"></div>
     <script>
         var myChart1 = echarts.init(document.getElementById('main1'));
         var option1 = {
+            grid: {
+                left: 30,
+            },
             xAxis: {
                 type: 'category',
-                data: ['202111', '202201', '202206', '202207', '202208', '202209', '202210', '202211']
+                data: ['202111', '202201', '202206', '202207']
             },
             yAxis: {
-                type: 'value'
+                type: 'value',
+                show: true,
+                axisLabel: {
+                    formatter: function(value){
+                        if(value>=10000){
+                            return value/10000+'万';
+                        }
+                        return value;
+                    }
+                }
             },
             series: [{
                 data: [
