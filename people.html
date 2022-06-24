@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>出生人口</title>
+    <script src="./echarts.min.js"></script>
+    <style>
+      .container {
+        position: absolute;
+        width: 100%;
+        height: 500px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="main1" class="container"></div>
+    <script>
+      var myChart1 = echarts.init(document.getElementById("main1"));
+      var option1 = {
+        grid: {
+          left: 30,
+        },
+        xAxis: {
+          type: "category",
+          data: [
+            "2011",
+            "2012",
+            "2013",
+            "2014",
+            "2015",
+            "2016",
+            "2017",
+            "2018",
+            "2019",
+            "2020",
+            "2021",
+          ],
+        },
+        yAxis: {
+          type: "value",
+          show: true,
+          axisLabel: {
+            formatter: function (value) {
+              if (value >= 10000) {
+                return value / 10000 + "万";
+              }
+              return value;
+            },
+          },
+        },
+        series: [
+          {
+            data: [
+              1600, 1635, 1640, 1687, 1655, 1786, 1723, 1523, 1465, 1200, 1062,
+            ],
+            type: "line",
+            smooth: true,
+            itemStyle: {
+              normal: {
+                color: "#3C76F4", //改变折线点的颜色
+                label: { show: true }, //顶部显示数值
+                lineStyle: {
+                  color: "#3C76F4", //改变折线颜色
+                },
+              },
+            },
+          },
+        ],
+      };
+
+      // 使用刚指定的配置项和数据显示图表。
+      myChart1.setOption(option1);
+    </script>
+  </body>
+</html>
