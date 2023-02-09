@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="keywords" content="深圳市,幼儿园招生,小学招生,幼儿园在校生数量,小学在校生数量">
+    <meta name="description" content="深圳幼儿园、小学招生人数和在校生人数">
+    <title>深圳幼儿园小学生招生在校情况</title>
+    <script src="./echarts.min.js"></script>
+    <style>
+      .container {
+        position: absolute;
+        width: 100%;
+        height: 1000px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="main1" class="container"></div>
+    <script>
+      var myChart1 = echarts.init(document.getElementById('main1'));
+      var option1 = {
+        grid: {
+          left: 30,
+        },
+        legend: {},
+        tooltip: {
+          trigger: 'axis',
+          formatter: '{b}年<br/> {c}万',
+        },
+        xAxis: {
+          type: 'category',
+          data: [ 2016, 2017, 2018, 2019, 2020, 2021],
+        },
+        yAxis: {
+          type: 'value',
+          show: true,
+          axisLabel: {
+            formatter: function (value) {
+              if (value >= 10000) {
+                return value / 10000 + '万';
+              }
+              return value;
+            },
+          },
+        },
+        series: [
+          // 2016-2021
+          {
+            name: '幼儿园在校生数量',
+            type: 'line',
+            data: [  46.33, 50.5, 52.42, 54.5, 55.97, 59.76],
+            smooth: true,
+            itemStyle: {
+              normal: {
+                label: { show: true }, //顶部显示数值
+              },
+            },
+          },
+          {
+            name: '小学生在校生数量',
+            type: 'line',
+            data: [  91.1, 96.45, 102.8, 106.9, 109.12, 113.3],
+
+            smooth: true,
+            itemStyle: {
+              normal: {
+                color: '#3C76F4', //改变折线点的颜色
+                label: { show: true }, //顶部显示数值
+                lineStyle: {
+                  color: '#3C76F4', //改变折线颜色
+                },
+              },
+            },
+          },
+
+          {
+            name: '幼儿园招生数量',
+            type: 'line',
+            // 2021
+            data: [
+              17.4,
+              20.25,
+              19.37, // 2018
+              17.98,
+              18.71,
+              19.28
+            ],
+            smooth: true,
+            itemStyle: {
+              normal: {
+                label: { show: true }, //顶部显示数值
+              },
+            },
+          },
+          {
+            name: '小学招生数量',
+            type: 'line',
+            data: [
+              // 17.21, // 2015
+              17.38, // 2016
+              18.15,
+              20.63, // 2018
+              20.4, // 2019
+              19.07,
+              20.45,
+            ],
+            smooth: true,
+            itemStyle: {
+              normal: {
+                label: { show: true }, //顶部显示数值
+              },
+            },
+          },
+        ],
+      };
+
+      // 使用刚指定的配置项和数据显示图表。
+      myChart1.setOption(option1);
+    </script>
+  </body>
+</html>
