@@ -26,64 +26,67 @@
             },
             xAxis: {
                 type: 'category',
-                data: ['202201', '202202', '202204', '202208', '202209', '202210', '202211', '202302']
+                data: ['202201', '202202', '202204', '202208', '202209', '202210', '202211', '202302',
+             '202305']
             },
             yAxis: {
                 type: 'value',
                 show: true,
                 axisLabel: {
-                    formatter: function(value){
-                        if(value>=10000){
-                            return value/10000+'万';
+                    formatter: function (value) {
+                        if (value >= 10000) {
+                            return value / 10000 + '万';
                         }
                         return value;
                     }
                 }
             },
-            series: [{
-                data: [
-                    {
-                        name: ' ', value: 57871
-                    },
-                    {
-                        name: '', value: 55654
-                    },
-                    {
-                        name: '', value: 55376
-                    },
-                    {
-                        name: '', value: 53898
-                    },
-                    {
-                        name: '', value: 53285
-                    },
-                    {
-                        name: '', value: 52227
-                    },
-                    {
-                        name: '', value: 51544
-                    },
-                    {
-                        name: '', value: 50608
-                    },
-                    
-                ],
-                type: 'line',
-                smooth: true,
-                 itemStyle: {
-                    normal: {
-                        color: "#3C76F4", //改变折线点的颜色
-                        label : {show: true}, //顶部显示数值
-                        lineStyle: {
-                        color: "#3C76F4" //改变折线颜色
+            series: [
+                {
+                    name: '安居房',
+                    data: [
+                        57871,
+                        55654,
+                        55376,
+                        53898,
+                        53285,
+                        52227,
+                        51544,
+                        50608,
+                        47428,
+
+                    ],
+                    type: 'line',
+                    smooth: true,
+                    itemStyle: {
+                        normal: {
+                            color: "#3C76F4", //改变折线点的颜色
+                            label: { show: true }, //顶部显示数值
+                            lineStyle: {
+                                color: "#3C76F4" //改变折线颜色
+                            }
                         }
-                    }
-                 },
-            }]
+                    },
+                },
+                {
+                    name: '公租房',
+                    data: [
+                        54564,
+                        54564,
+                        54564,
+                        54564,
+                        54564,
+                        54564,
+                        54564,
+                        54564,
+                        54564,
+                    ]
+                }
+            ]
         };
 
-         // 使用刚指定的配置项和数据显示图表。
-         myChart1.setOption(option1);
+        // 使用刚指定的配置项和数据显示图表。
+        myChart1.setOption(option1);
 
     </script>
 </body>
